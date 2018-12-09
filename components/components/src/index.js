@@ -7,8 +7,9 @@ const App = () => {
     return (
         <div className="ui container comments">
              {/* WHEN USING A COMPONENT FROM OUTSIDE CURRENT FILE DONT USE CURLY BRACES USE CARROT TAGS PROPER WAY TO RENDER ONE COMPENENT INSIDE ANOTHER */}
-            <CommentDetail />
-            
+            <CommentDetail author="Sam"/>
+            <CommentDetail author="Alex"/>
+            <CommentDetail author="Jane"/> 
         </div>
         
     );
