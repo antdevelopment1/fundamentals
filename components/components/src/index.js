@@ -10,12 +10,18 @@ const App = () => {
         <div className="ui container comments">
              {/* WHEN USING A COMPONENT FROM OUTSIDE CURRENT FILE DONT USE CURLY BRACES USE CARROT TAGS PROPER WAY TO RENDER ONE COMPENENT INSIDE ANOTHER */}
              <ApprovalCard>
+                <div>
+                    <h4>Warning</h4>
+                    Are you sure you want to do this?
+                </div>
+             </ApprovalCard>
+             <ApprovalCard>
                 <CommentDetail 
                     author="Sam" 
                     timeAgo="Today at 4:45PM" 
                     content="Nice blog post!" 
                     avatar={faker.image.avatar()}
-                />
+            />
             </ApprovalCard>
             <ApprovalCard>
                 <CommentDetail 
@@ -31,7 +37,7 @@ const App = () => {
                     timeAgo="Yesterday at 5:00PM" 
                     content="Man I never thought about it like that!" 
                     avatar={faker.image.avatar()}
-                /> 
+            /> 
             </ApprovalCard>
         </div>
         
