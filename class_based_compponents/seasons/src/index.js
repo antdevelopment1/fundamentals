@@ -9,17 +9,30 @@ class App extends React.Component {
 
         // This is the only time we do direct assignment to this.state
         this.state = {
-            lat: null
+            // This doesnt render as null it just doesnt render as a value but after we get the value of users location from our callback below and setState our render will get called again after we setState to update our object
+            lat: null,
+            errorMessage: ''
         };
 
         window.navigator.geolocation.getCurrentPosition(
-            (position) => this.setState({lat: position.coords.latitude}),
-            (err) => console.log(err)
+            (position) => {
+                this.setState({lat: position.coords.latitude})
+            },
+            (err) => this.setState({
+                errorMessage: err.message
+            })
         );
     }
+
+    // Must be called render and must return some amount of JSX
+    // Render runs twice once when it was null and once after we update the state one more time
     render() {
         return (
-            <div>Laditude: {this.state.lat}</div>
+            <div>
+                Laditude: {this.state.lat}
+                <br />
+                Error: {this.state.errorMessage}
+            </div>
         )
     }
 }
