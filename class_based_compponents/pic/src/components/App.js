@@ -1,9 +1,12 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import SearchBar from './SearchBar';
 
 const App = () => {
     return (
-        <div>Howdy</div>
+        <div className="ui container" style={{marginTop: '20px'}}>
+            <SearchBar />
+            
+        </div>
     )
 }
 
