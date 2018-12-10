@@ -5,8 +5,10 @@ import ReactDOM from 'react-dom';
 
 class App extends React.Component {
     constructor(props) {
+        console.log(props);
         super(props);
 
+        // Our constructor has only one purpose now which is to initiate state
         // This is the only time we do direct assignment to this.state
         this.state = {
             // This doesnt render as null it just doesnt render as a value but after we get the value of users location from our callback below and setState our render will get called again after we setState to update our object
@@ -14,18 +16,22 @@ class App extends React.Component {
             errorMessage: ''
         };
 
+    }
+
+    componentDidMount() {
         window.navigator.geolocation.getCurrentPosition(
-            (position) => {
-                this.setState({lat: position.coords.latitude})
-            },
-            (err) => this.setState({
-                errorMessage: err.message
-            })
-        );
+            (position) => this.setState({lat: position.coords.latitude}),
+            (err) => this.setState({errorMessage: err.message})
+        );  
+    }
+
+    componentDidUpdate() {
+        console.log('My component was just updated. It rerendered itself.');
     }
 
     // Must be called render and must return some amount of JSX
     // Render runs twice once when it was null and once after we update the state one more time
+    // The render method alone is about returning JSX Avoid doing anything besides returning JSX
     render() {
             // If theres an error and there is no laditude to show then we want to show only the error message
             if (this.state.errorMessage && !this.state.lat) {
