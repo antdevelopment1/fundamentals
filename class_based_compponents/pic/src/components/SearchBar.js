@@ -12,7 +12,7 @@ class SearchBar extends React.Component {
 
     // We could have made a constructor and used the bind method to bind the value of this to the method but that is a legacy method
     // This is alternative arrow syntax will have the correct value needed to access .this refering to our instance
-    onFormSubmit = (event) => {
+    onFormSubmit (event) {
         event.preventDefault();
         console.log(this.state.term);
     }
@@ -20,7 +20,7 @@ class SearchBar extends React.Component {
     render() {
         return (
             <div className="ui segment">
-                <form onSubmit={this.onFormSubmit} className="ui form">
+                <form onSubmit={(event) => this.onFormSubmit(event)} className="ui form">
                     <div className="field">
                         <label>Image Search</label>
                         {/* this has to be called onChange or else our function wont be called when there is a chnage in the input field */}
