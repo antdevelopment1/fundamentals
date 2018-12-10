@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import SeasonDisplay from './SeasonDisplay';
+import Spinner from './Spinner';
 
 
 class App extends React.Component {
@@ -35,7 +36,7 @@ class App extends React.Component {
             }
         
             // If there is neither a error or laditude to show then we are still waiting for a reponse back from our api call
-                return <div>Loading</div>
+                return <div><Spinner message="Please accept location request..."/></div>
             // return (
             // <div>
             //     Laditude: {this.state.lat}
