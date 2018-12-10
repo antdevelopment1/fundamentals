@@ -25,7 +25,7 @@ class App extends React.Component {
             );  
         }
 
-        render() {
+        renderContent() {
             // If theres an error and there is no laditude to show then we want to show only the error message
             if (this.state.errorMessage && !this.state.lat) {
                 return <div>Error: {this.state.errorMessage}</div>
@@ -44,15 +44,22 @@ class App extends React.Component {
             //     Error: {this.state.errorMessage}
             // </div>
             // )
+        } 
+
+        // Must be called render and must return some amount of JSX
+        // Render runs twice once when it was null and once after we update the state one more time
+        // The render method alone is about returning JSX Avoid doing anything besides returning JSX
+        render() {
+            return (
+                <div className="border red">
+                    {this.renderContent()}
+                </div>
+            );
         
         }
         
 
     }
-
-    // Must be called render and must return some amount of JSX
-    // Render runs twice once when it was null and once after we update the state one more time
-    // The render method alone is about returning JSX Avoid doing anything besides returning JSX
 
 
 // This example illistrates the purpose of class based components. We don't have a great way of accessing the current location of the user as that event can take much longer to
