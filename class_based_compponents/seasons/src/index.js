@@ -27,13 +27,25 @@ class App extends React.Component {
     // Must be called render and must return some amount of JSX
     // Render runs twice once when it was null and once after we update the state one more time
     render() {
-        return (
-            <div>
-                Laditude: {this.state.lat}
-                <br />
-                Error: {this.state.errorMessage}
-            </div>
-        )
+            // If theres an error and there is no laditude to show then we want to show only the error message
+            if (this.state.errorMessage && !this.state.lat) {
+                return <div>Error: {this.state.errorMessage}</div>
+            }
+            // If there is no error and we have a laditude to display then we only want to display the laditude only
+            if (!this.state.errorMessage && this.state.lat) {
+                return <div>Laditude: {this.state.lat}</div>
+            }
+
+            // If there is neither a error or laditude to show then we are still waiting for a reponse back from our api call
+                return <div>Loading</div>
+            // return (
+            // <div>
+            //     Laditude: {this.state.lat}
+            //     <br />
+            //     Error: {this.state.errorMessage}
+            // </div>
+            // )
+
     }
 }
 
