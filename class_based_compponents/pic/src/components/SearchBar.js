@@ -10,7 +10,9 @@ class SearchBar extends React.Component {
         term: ''
     }
 
-    onFormSubmit (event) {
+    // We could have made a constructor and used the bind method to bind the value of this to the method but that is a legacy method
+    // This is alternative arrow syntax will have the correct value needed to access .this refering to our instance
+    onFormSubmit = (event) => {
         event.preventDefault();
         console.log(this.state.term);
     }
