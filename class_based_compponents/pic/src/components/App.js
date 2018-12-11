@@ -1,6 +1,7 @@
 import React from 'react';
 import unsplash from './../api/unsplash';
 import SearchBar from './SearchBar';
+import ImageList from './ImageList';
 
 
 class App extends React.Component {
@@ -28,8 +29,7 @@ class App extends React.Component {
             <div className="ui container" style={{marginTop: '20px'}}>
             {/* The value here for onSubmit does not have to be called onSubmit but in this case it makes sense to use this name */}
                 <SearchBar handleSubmit={this.onSearchSubmit}/>
-                Found: {this.state.images.length}
-                
+                <ImageList images={this.state.images}/>
             </div>
         )
     }
