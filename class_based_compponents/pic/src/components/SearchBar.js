@@ -27,7 +27,7 @@ class SearchBar extends React.Component {
                     <div className="field">
                         <label>Image Search</label>
                         {/* this has to be called onChange or else our function wont be called when there is a chnage in the input field */}
-                        <input type="text" value={this.state.term} onChange={(event) => this.setState({term: event.target.value.toUpperCase()})} />
+                        <input type="text" value={this.state.term} onChange={(event) => this.setState({term: event.target.value})} />
                     </div>
                 </form>
             </div>
